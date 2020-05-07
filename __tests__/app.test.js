@@ -20,30 +20,36 @@ describe('app routes', () => {
 
     const expectation = [
       {
+        id: 1,
         name: 'bench press',
         weight: 250,
         is_fullbody: false,
-        type: 'resistance'
+        type: 'resistance',
+        user_id: 1
       },
       {
+        id: 2,
         name: 'squats',
         weight: 180,
         is_fullbody: true,
-        type: 'resistance'
+        type: 'resistance',
+        user_id: 1
       },
       {
+        id: 3,
         name: 'deadlift',
         weight: 350,
         is_fullbody: false,
-        type: 'resistance'
-        
+        type: 'resistance',
+        user_id: 1
       },
       {
+        id: 4,
         name: 'jump jacks',
         weight: 0,
         is_fullbody: true,
-        type: 'calisthenics'
-        
+        type: 'calisthenics',
+        user_id: 1
       }
     ];
 
