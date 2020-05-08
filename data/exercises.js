@@ -14,14 +14,14 @@ module.exports = [
   {
     name: 'deadlift',
     weight: 350,
-    is_fullbody: false,
+    is_fullbody: true,
     type: 'resistance'
     
   },
   {
     name: 'jump jacks',
     weight: 0,
-    is_fullbody: true,
+    is_fullbody: false,
     type: 'calisthenics'
     
   }
