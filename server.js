@@ -50,7 +50,8 @@ app.post('/exercises/', async(req, res) => {
     const data = await client.query(`insert into exercises (name, weight, is_fullbody, type, user_id)
     values ($1, $2, $3, $4, $5)
     returning *;`,
-    [req.body.name, req.body.weight, req.body.is_fullbody, req.body.type, req.body.user_id]
+    //had to hardcode user as 1 due to fail on heroku's side
+    [req.body.name, req.body.weight, req.body.is_fullbody, req.body.type, 1]
     );
     // console.log(data.row);
     res.json(data.rows[0]);
