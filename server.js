@@ -27,7 +27,7 @@ app.get('/exercises/:id', async(req, res) => {
     res.json(e);
   }
 });
-
+//get an exercise by it's name
 app.get('/exercisebyname/:name', async(req, res) => {
   try {
     const name = `%${req.params.name}%`;
@@ -39,7 +39,25 @@ app.get('/exercisebyname/:name', async(req, res) => {
     console.error(e);
     res.json(e);
   }
+});
 
+app.post('/exercises/', async(req, res) => {
+  // console.log('=============================\n');
+  // console.log('|| req.body', req.body);
+  // console.log('\n=============================');
+  try {
+    
+    const data = await client.query(`insert into exercises (name, weight, is_fullbody, type, user_id)
+    values ($1, $2, $3, $4, $5)
+    returning *;`,
+    [req.body.name, req.body.weight, req.body.is_fullbody, req.body.type, req.body.user_id]
+    );
+    // console.log(data.row);
+    res.json(data.rows[0]);
+  } catch(e) {
+    console.error(e);
+    res.json(e);
+  }
 });
 
 
