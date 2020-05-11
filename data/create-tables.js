@@ -18,7 +18,7 @@ async function run() {
                 );  
                 CREATE TABLE types (
                   id SERIAL PRIMARY KEY,
-                  type VARCHAR(128) NOT NULL
+                  type VARCHAR(512) NOT NULL
 
               );           
                 CREATE TABLE exercises (
@@ -26,7 +26,7 @@ async function run() {
                     name VARCHAR(512) NOT NULL,
                     weight INTEGER NOT NULL,
                     is_fullbody BOOLEAN NOT NULL,
-                    type_id INTEGER NOT NULL REFERENCES type(id),
+                    type_id INTEGER NOT NULL REFERENCES types(id),
                     user_id INTEGER NOT NULL REFERENCES users(id)
             );
         `);
