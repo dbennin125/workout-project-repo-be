@@ -41,6 +41,19 @@ app.get('/exercisebyname/:name', async(req, res) => {
   }
 });
 
+//set new name in exercise DB 
+app.put('/exercises/:id', async(req, res) => {
+  try {
+    const id = req.params.id;
+    const data = await client.query('SELECT * from exercises WHERE id=$1', [id]);
+    // console.log(data.row);
+    res.json(data.rows[0]);
+  } catch(e) {
+    console.error(e);
+    res.json(e);
+  }
+});
+
 app.post('/exercises/', async(req, res) => {
   // console.log('=============================\n');
   // console.log('|| req.body', req.body);
